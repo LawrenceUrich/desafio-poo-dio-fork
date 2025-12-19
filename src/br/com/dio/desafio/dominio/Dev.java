@@ -81,4 +81,14 @@ public class Dev {
     public int hashCode() {
         return Objects.hash(nome);
     }
+
+    @Override
+    public String toString() {
+        return "Dev{" +
+            "nome='" + nome + '\'' +
+            ", inscritos=" + conteudosInscritos.size() +
+            ", concluidos=" + conteudosConcluidos.size() +
+            ", xpTotal=" + calcularTotalXp() +
+            '}';
+    }
 }
