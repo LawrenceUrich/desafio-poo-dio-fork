@@ -14,7 +14,10 @@ public abstract class Conteudo {
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        if (titulo == null || titulo.trim().isEmpty()) {
+            throw new IllegalArgumentException("Título não pode ser vazio.");
+        }
+        this.titulo = titulo.trim();
     }
 
     public String getDescricao() {
@@ -22,6 +25,9 @@ public abstract class Conteudo {
     }
 
     public void setDescricao(String descricao) {
-        this.descricao = descricao;
+        if (descricao == null || descricao.trim().isEmpty()) {
+            throw new IllegalArgumentException("Descrição não pode ser vazia.");
+        }
+        this.descricao = descricao.trim();
     }
 }

@@ -2,7 +2,7 @@ package br.com.dio.desafio.dominio;
 
 import java.time.LocalDate;
 
-public class Mentoria extends Conteudo{
+public class Mentoria extends Conteudo {
 
     private LocalDate data;
 
@@ -19,6 +19,9 @@ public class Mentoria extends Conteudo{
     }
 
     public void setData(LocalDate data) {
+        if (data == null) {
+            throw new IllegalArgumentException("Data da mentoria não pode ser nula.");
+        }
         this.data = data;
     }
 
