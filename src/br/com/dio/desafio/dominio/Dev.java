@@ -23,7 +23,26 @@ public class Dev {
             this.conteudosConcluidos.add(conteudo.get());
             this.conteudosInscritos.remove(conteudo.get());
         } else {
-            System.err.println("Você não está matriculado em nenhum conteúdo!");
+            System.err.println("Nenhum conteúdo para progredir. Inscreva-se em um bootcamp primeiro.");
+        }
+    }
+
+    // Progride N conteúdos (se tiver)
+    public void progredir(int quantidade) {
+        if (quantidade <= 0) {
+            System.err.println("Quantidade inválida para progredir: " + quantidade);
+            return;
+        }
+        for (int i = 0; i < quantidade; i++) {
+            if (conteudosInscritos.isEmpty()) break;
+            progredir();
+        }
+    }
+
+    // Progride tudo que estiver inscrito
+    public void progredirTudo() {
+        while (!conteudosInscritos.isEmpty()) {
+            progredir();
         }
     }
 
@@ -42,7 +61,6 @@ public class Dev {
         this.nome = nome;
     }
 
-    // Coleções imutáveis pra não quebrar o domínio por fora
     public Set<Conteudo> getConteudosInscritos() {
         return Collections.unmodifiableSet(conteudosInscritos);
     }
